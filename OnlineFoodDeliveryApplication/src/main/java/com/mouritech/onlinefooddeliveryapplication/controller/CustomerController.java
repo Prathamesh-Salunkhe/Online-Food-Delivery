@@ -18,7 +18,7 @@ import com.mouritech.onlinefooddeliveryapplication.exception.ResourceNotFoundExc
 import com.mouritech.onlinefooddeliveryapplication.entity.Customer;
 import com.mouritech.onlinefooddeliveryapplication.repository.CustomerRepository;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:8083")
 @RestController 
 @RequestMapping("/api/v1")
 public class CustomerController {
@@ -50,9 +50,9 @@ public class CustomerController {
 		
 		//get a customer by username and email
 		@GetMapping("/customers/{username}/{email}")
-		public ResponseEntity<Customer> getCustomerByUsernameAndEmail(@PathVariable(value = "username") String username,
-				@PathVariable(value ="email") String email) throws ResourceNotFoundException {
-		        Customer customer = customerRepository.findByUsernameAndEmail(username, email)
+		public ResponseEntity<Customer> getCustomerByEmailAndPassword(@PathVariable(value = "email") String email,
+				@PathVariable(value ="password") String password) throws ResourceNotFoundException {
+		        Customer customer = customerRepository.findByEmailAndPassword(email, password)
 		          .orElseThrow(() -> new ResourceNotFoundException("Customer not found "));
 		        return ResponseEntity.ok().body(customer);
 		    }

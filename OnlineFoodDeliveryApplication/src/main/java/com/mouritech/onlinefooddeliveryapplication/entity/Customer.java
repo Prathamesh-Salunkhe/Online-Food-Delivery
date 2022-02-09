@@ -27,6 +27,9 @@ public class Customer {
 	@Column(name = "email", nullable = false)
 	private String email;
 	
+	@Column(name = "password", nullable = false)
+	private String password;
+	
 	@Column(name = "gender", nullable = false)
 	private String gender;
 	
@@ -52,13 +55,14 @@ public class Customer {
 		super();
 	}
 
-	public Customer(String firstName, String lastName, int age, String email, String mobileNumber, String address,
+	public Customer(String firstName, String lastName, int age, String email, String password, String mobileNumber, String address,
 			String city, String state, String country, String pincode) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
 		this.email = email;
+		this.password=password;
 		this.mobileNumber = mobileNumber;
 		this.address = address;
 		this.city = city;
@@ -67,13 +71,14 @@ public class Customer {
 		this.pincode = pincode;
 	}
 
-	public Customer(String firstName, String lastName, int age, String email, String gender, String mobileNumber,
+	public Customer(String firstName, String lastName, int age, String email, String password, String gender, String mobileNumber,
 			String address, String city, String state, String country, String pincode) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
 		this.email = email;
+		this.password=password;
 		this.gender = gender;
 		this.mobileNumber = mobileNumber;
 		this.address = address;
@@ -115,6 +120,14 @@ public class Customer {
 		this.age = age;
 	}
 
+	public String getPassword() {
+		return email;
+	}
+
+	public void setPassword(String email) {
+		this.email = email;
+	}
+	
 	public String getEmail() {
 		return email;
 	}
@@ -182,7 +195,7 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName + ", age="
-				+ age + ", email=" + email + ", gender=" + gender + ", mobileNumber=" + mobileNumber + ", address="
+				+ age + ", email=" + email + ",password=" + password + ", gender=" + gender + ", mobileNumber=" + mobileNumber + ", address="
 				+ address + ", city=" + city + ", state=" + state + ", country=" + country + ", pincode=" + pincode
 				+ "]";
 	}

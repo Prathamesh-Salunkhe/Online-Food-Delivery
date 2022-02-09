@@ -34,7 +34,7 @@ public class FoodCartController {
 	
 	//get menu for corresponding vendor
 	@GetMapping("/customers/{customerId}/menu")
-	public List<Cart> getMenuByCustomerId(@PathVariable(value = "customerId") Long vendorId)
+	public List<Cart> getMenuByCustomerId(@PathVariable(value = "customerId") Long customerId)
 	{
 		return foodcartRepository.findByCustomer_CustomerId(customerId);
 	}
@@ -77,7 +77,7 @@ public class FoodCartController {
          @Validated @RequestBody Cart cartDetails) throws ResourceNotFoundException
 	{
         Cart item = foodcartRepository.findById(cartId)
-        .orElseThrow(() -> new ResourceNotFoundException("Cart not found for this id :: " + itemId));
+        .orElseThrow(() -> new ResourceNotFoundException("Cart not found for this id :: " + cartId));
         
         cart.setCartList(cartDetails.getCartList());
         
@@ -88,7 +88,7 @@ public class FoodCartController {
 	
 	@DeleteMapping("/customers/{customerId}/menu/{customerId}")
 	public ResponseEntity<?> deleteCart(@PathVariable(value = "cartId") Long cartId, 
-			@PathVariable(value = "itemId") Long itemId)
+			@PathVariable(value = "cartId") Long cartId)
 	throws ResourceNotFoundException
 	{
 		return foodcartRepository.findByCartIdAndCustomer_CustomerId(cartId, customerId).map(cart -> {
