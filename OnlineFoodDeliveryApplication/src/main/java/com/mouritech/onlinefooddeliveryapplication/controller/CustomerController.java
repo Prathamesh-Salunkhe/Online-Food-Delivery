@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mouritech.onlinefooddeliveryapplication.exception.ResourceNotFoundException;
-import com.mouritech.onlinefooddeliveryapplication.entity.Customer;
+import com.mouritech.onlinefooddeliveryapplication.model.Customer;
 import com.mouritech.onlinefooddeliveryapplication.repository.CustomerRepository;
 
-@CrossOrigin(origins = "http://localhost:8083")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController 
 @RequestMapping("/api/v1")
 public class CustomerController {
@@ -52,9 +52,9 @@ public class CustomerController {
 		@GetMapping("/customers/{username}/{email}")
 		public ResponseEntity<Customer> getCustomerByEmailAndPassword(@PathVariable(value = "email") String email,
 				@PathVariable(value ="password") String password) throws ResourceNotFoundException {
-		        Customer customer = customerRepository.findByEmailAndPassword(email, password)
-		          .orElseThrow(() -> new ResourceNotFoundException("Customer not found "));
-		        return ResponseEntity.ok().body(customer);
+		       // Customer customer = customerRepository.findByEmailAndPassword(email, password)
+		       //   .orElseThrow(() -> new ResourceNotFoundException("Customer not found "));
+		        return ResponseEntity.ok().body(null);
 		    }
 		
 		//update a customer
