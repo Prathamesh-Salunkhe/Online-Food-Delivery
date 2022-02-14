@@ -30,11 +30,11 @@ public class CustomerController {
 		
 	}
 	
-	@GetMapping("/getcustomerbynameandpassword/{customerName}/{customerPassword}")
-	public ResponseEntity<?> findRestaurantByNameAndPassword(@PathVariable(value = "customerName") String customerName,
+	@GetMapping("/getcustomerbyemailandpassword/{customerEmail}/{customerPassword}")
+	public ResponseEntity<?> findCustomerByEmailAndPassword(@PathVariable(value = "customerEmail") String customerEmail,
 			@PathVariable(value ="customerPassword") String customerPassword){
 		
-		boolean result = customerService.findCustomerByNameAndPassword(customerName,customerPassword);
+		boolean result = customerService.findCustomerByEmailAndPassword(customerEmail,customerPassword);
 		if(result==true) {
 			return ResponseEntity.ok().body("login successful");
 		}

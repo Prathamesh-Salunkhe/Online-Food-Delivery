@@ -20,10 +20,10 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public boolean findCustomerByNameAndPassword(String customerName, String customerPassword) {
+	public boolean findCustomerByEmailAndPassword(String customerEmail, String customerPassword) {
 		boolean flag =false;
 		
-		Customer customer = customerRepository.findByCustomerNameAndCustomerPassword(customerName,customerPassword);
+		Customer customer = customerRepository.findByCustomerEmailAndCustomerPassword(customerEmail,customerPassword);
 		if(customer==null) {
 			return flag;
 		}

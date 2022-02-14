@@ -8,7 +8,7 @@ import com.mouritech.onlinefoodorderapplication.entity.Customer;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
-	Customer findByCustomerNameAndCustomerPassword(String customerName, String customerPassword);
+	Customer findByCustomerEmailAndCustomerPassword(String customerEmail, String customerPassword);
 
 	Customer findByCustomerName(String customerName);
 

@@ -8,7 +8,7 @@ public interface CustomerService {
 
 	void addCustomerInformation(Customer customer);
 
-	boolean findCustomerByNameAndPassword(String customerName, String customerPassword);
+	boolean findCustomerByEmailAndPassword(String customerEmail, String customerPassword);
 
 	ResponseEntity<?> updatecustomerinfobyname(Customer customer);
 
