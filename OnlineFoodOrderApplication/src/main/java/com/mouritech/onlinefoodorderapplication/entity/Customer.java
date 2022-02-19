@@ -5,8 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 import com.sun.istack.NotNull;
 
@@ -21,8 +19,8 @@ public class Customer {
 	
 	@Column(name="customer_name")
 	@NotNull
-	@NotBlank
-	@NotEmpty
+	@org.hibernate.validator.constraints.NotBlank
+	@org.hibernate.validator.constraints.NotEmpty
 	private String customerName;
 	
 	
@@ -60,7 +58,7 @@ public class Customer {
 		super();
 	}
 
-	public Customer(@NotBlank @NotEmpty String customerName,  int customerAge,
+	public Customer( String customerName,  int customerAge,
 			String customerEmail, String customerPassword, String customerMobileNumber, String customerAddress,
 			String customerCity, String customerState, String customerCountry) {
 		super();
@@ -76,7 +74,7 @@ public class Customer {
 		
 	}
 
-	public Customer(@NotBlank @NotEmpty String customerName, int customerAge,
+	public Customer( String customerName, int customerAge,
 			String customerEmail, String customerPassword, String customerMobileNumber, String customerAddress,
 			String customerCity, String customerState, String customerCountry, String customerPincode) {
 		super();
@@ -181,6 +179,16 @@ public class Customer {
 
 	public void setCustomerPincode(String customerPincode) {
 		this.customerPincode = customerPincode;
+	}
+
+	public Object getCarts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setCarts(Object carts) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

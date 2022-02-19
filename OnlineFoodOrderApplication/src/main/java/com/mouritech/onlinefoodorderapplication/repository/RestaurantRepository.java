@@ -7,8 +7,11 @@ import com.mouritech.onlinefoodorderapplication.entity.Restaurant;
 @Repository
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
 
-	Restaurant findByRestaurantNameAndRestaurantPassword(String restaurantName, String restaurantPassword);
-
 	Restaurant findByRestaurantName(String restaurantName);
 
+	Restaurant findByRestaurantEmailAndRestaurantPassword(String restaurantEmail, String restaurantPassword);
+
+	Restaurant findByRestaurantEmail(String restaurantEmail);
+
+	Restaurant findByRestaurantPassword(String restaurantPassword);
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mouritech.onlinefoodorderapplication.dto.CustomerDto;
 import com.mouritech.onlinefoodorderapplication.entity.Customer;
 import com.mouritech.onlinefoodorderapplication.service.CustomerService;
 
@@ -52,6 +53,32 @@ public class CustomerController {
 		return result;
 	}
 	
+	@GetMapping("/getcustomerbyemailandpasswordcheck")
+	public ResponseEntity<?>checkCustomerEmailAndPassword(@RequestBody CustomerDto customerDto){
+		if(customerDto==null) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("please Enter Email and password");
+		}
+		else {
+			
+			ResponseEntity<?> ckeckLogin = customerService.checkCustomerEmailAndPassword(customerDto);
+			return ckeckLogin;
+			
+		}
+		
+	}
 
+	/*@PostMapping("/insertitemsByrestaurantemaiandpassword")
+	public ResponseEntity<?>insertItems(@RequestBody RestaurantItemsDto restaurantItemsDto){
+		
+		if(restaurantItemsDto==null) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("please Enter Email and password, items");
+		}
+		else {
+			
+			ResponseEntity<?> itemsInsert = restaurantService.insertItems(restaurantItemsDto);
+			return itemsInsert;
+			
+		}
+*/
+	}
 
-}

@@ -10,9 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty; 
+import javax.validation.constraints.NotNull; 
 
 @Entity
 @Table(name = "restaurant")
@@ -25,14 +23,14 @@ public class Restaurant {
 	
 	@Column(name = "restaurant_name")
 	@NotNull
-	@NotBlank
-	@NotEmpty
+	@org.hibernate.validator.constraints.NotBlank
+	@org.hibernate.validator.constraints.NotEmpty
 	private String restaurantName;
 	
 	@Column(name = "restaurant_password")
 	@NotNull
-	@NotBlank
-	@NotEmpty
+	@org.hibernate.validator.constraints.NotBlank
+	@org.hibernate.validator.constraints.NotEmpty
 	private String restaurantPassword;
 	
 	@Column(name = "restaurant_address")

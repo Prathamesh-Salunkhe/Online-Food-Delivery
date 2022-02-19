@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 @Entity
 public class Carts {
 	@Id
@@ -17,7 +18,7 @@ public class Carts {
 	@Column(name = "cartId")
 	          private long cartId;
 	
-	@ManyToOne(cascade = CascadeType.ALL )
+	@OneToOne(cascade = CascadeType.ALL )
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
 	
